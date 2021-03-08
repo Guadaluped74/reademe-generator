@@ -2,15 +2,29 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const util = require('util');
-// TODO: Create an array of questions for user input
-const writeFileAsync = util.promisify(fs.writeFile);
+const generateMarkdown = require('./utils/generateMarkdown')
 
-const promptUser = () => {
-return inquirer.prompt = ([
-    {
+const licenseChoice = [
+          "apache 2.0",
+          "mozilla public license",
+          "microsoft public license",
+          "none"
+        ]
+
+// TODO: Create an array of questions for user input
+
+
+const questions = ([
+      {
         type: 'input',
-        name: 'ProjectTitle',
-        message: 'What is the name of the project?',
+        name: 'title',
+        message: 'What is the title of the project?',
+      },
+      {    
+        type: 'input',
+        name: 'tableOfContents',
+        message: 'Table of contents (optional)?',
+       
       },
       {
         type: 'input',
@@ -19,72 +33,60 @@ return inquirer.prompt = ([
       },
       {
         type: 'input',
-        name: 'tableOfContents',
-        message: 'Table of contents (optional)?',
-      },
-      {
-        type: 'input',
         name: 'Installation',
         message: 'How do you install the project?',
       },
       {
         type: 'input',
-        name: 'usage',
+        name: 'user',
         message: 'Enter your GitHub Username',
       },
       {
-        type: 'input',
+        type: 'list',
         name: 'license',
-        message: 'Enter your LinkedIn URL.',
+        message: 'Any license?',
+        choices: licenseChoice
       },
       {
         type: 'input',
-        name: 'Features',
-        message: 'Enter your LinkedIn URL.',
+        name: 'features',
+        message: 'What are some of the features of the project?',
       },
       {
         type: 'input',
-        name: 'How to Contribute',
-        message: 'Enter your LinkedIn URL.',
+        name: 'contribute',
+        message: 'How can other people contribute?',
       },
       {
         type: 'input',
-        name: 'Test',
-        message: 'Enter your LinkedIn URL.',
-      },
+        name: 'application',
+        message: 'Any tests done on the application.',
+      }
     ])
-    .then({
-      projectTitle,
-      TableofContents ,
-      instruction,
-      credit,
-      license, 
-      git
-    });
-  };
 
 
 
-// TODO: Create a function to write README file
-function writeToFile(README, data) {
+ // TODO: Create a function to write README file  
+ function writeToFile(fileName, data) {
     
-    fs.writeFile("./example"+fileName,data,function(err) {
-        if(err) {
-
-        return console.log(err);
+    fs.writeFile(fileName,data,function(err) {
+      console.log(data)  
+      if(err) {
+      return console.log(err);
     }
-    console.log(filename +  "created")
+    console.log(fileName +  "created")
 })
 }
 
-// TODO: Create a function to initialize app
-function init() {
-    promptUser()
-    .then((answers) => writeFileAsync('README.md', generateHTML(answers)))
-    .then(() => console.log('Successfully wrote to READ.md'))
-    .catch((err) => console.error(err));
-};
 
+//TODO: Create a function to initialize app
+function init() {
+  inquirer.prompt(questions)
+  .then(function(data) {
+    writeToFile("README.md", generateMarkdown(data));
+    console.log(data)
+  })
+};
 
 // Function call to initialize app
 init();
