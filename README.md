@@ -1,43 +1,46 @@
-# reademe-generator
-https://github.com/Guadaluped74/readme generator     
+# Readme_Generator
+https://github.com/Guadaluped74/Readme_Generator    
   
-  #description 
-  uses node to create a readme by asking some questions and with the answers they are later used in a pre-made  template         
+# description 
+The project uses node to create a readme by asking some questions and with the answers they are later used in a pre-made template.        
   
-  #table of contents                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+# table of contents                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 
-  *[installation](#installation)
+*[installation](#installation)
  
-  *[user](#user) 
+*[user](#user) 
   
-  *[badges](#badges)
+*[badges](#badges)
  
-  *[features](#features)
+*[features](#features)
   
-  *[contributions](#contributions)
+*[contributions](#contributions)
   
-  *[tests] (#tests)
+*[tests] (#tests)
   
- #installation 
- 
- 
- 
- #user
- 
- Guadaluped74
- 
- #license
- 
- 
- 
- #features
- 
- 
- 
- #contributions 
- 
+# installation 
  
 
- #tests 
+ 
+# user
+ 
+Guadaluped74
+ 
+# license
+ 
+
+ 
+# features
+ 
+
+ 
+# contributions 
+ 
+
+
+# tests 
+
+
+
 
  
