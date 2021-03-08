@@ -20,6 +20,16 @@ const questions = ([
         name: 'title',
         message: 'What is the title of the project?',
       },
+      {
+        type: 'input',
+        name: 'user',
+        message: 'Enter your GitHub Username.',
+      },
+      {
+        type: 'input',
+        name: 'gmail',
+        message: 'Enter your gmail.',
+      },
       {    
         type: 'input',
         name: 'tableOfContents',
@@ -35,11 +45,6 @@ const questions = ([
         type: 'input',
         name: 'Installation',
         message: 'How do you install the project?',
-      },
-      {
-        type: 'input',
-        name: 'user',
-        message: 'Enter your GitHub Username',
       },
       {
         type: 'list',
@@ -74,7 +79,7 @@ const questions = ([
       if(err) {
       return console.log(err);
     }
-    console.log(fileName +  "created")
+    console.log(fileName +  " created")
 })
 }
 

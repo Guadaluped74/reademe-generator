@@ -29,7 +29,7 @@ function renderLicenseLink(license) {
 } else  if (license = "none"){
   var lic = ""
 
-}  return ""+ lic +"";
+}  return "("+ lic +")";
 }
 
 
@@ -50,50 +50,54 @@ function renderLicenseSection(license) {
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  var sec = renderLicenseSection(data.license);
-  return `# ${data.title}
-  https://github.com/${data.user}/${data.title}    
+var sec = renderLicenseSection(data.license);
+return `# ${data.title}
+https://github.com/${data.user}/${data.title}    
   
-  #description 
-  ${data.description}        
+# Description 
+${data.description}        
   
-  #table of contents                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+# Table of contents                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 
-  *[installation](#installation)
+*[installation](#installation)
  
-  *[user](#user) 
+*[user](#user) 
   
-  *[badges](#badges)
+*[badges](#badges)
  
-  *[features](#features)
+*[features](#features)
   
-  *[contributions](#contributions)
+*[contributions](#contributions)
   
-  *[tests] (#tests)
-  
- #installation 
- 
- ${data.Installation}
- 
- #user
- 
- ${data.user}
- 
- #license
- 
- ${sec}
- 
- #features
- 
- ${data.features}
- 
- #contributions 
- 
- ${data.contribute}
+*[tests](#tests)
 
- #tests 
+${data.tableOfContents}
 
- ${data.application}
+# User and Gmail
+ 
+${data.user}   ${data.gmail}
+
+# Installation 
+ 
+${data.Installation}
+ 
+
+ 
+# License
+ 
+${sec}
+ 
+# Features
+ 
+${data.features}
+ 
+# Contributions 
+ 
+${data.contribute}
+
+# Tests 
+
+${data.application}
 `;
 }
 
